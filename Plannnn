@@ -1,0 +1,48 @@
+package shota; //you dont need this part.
+
+import java.util.Scanner;
+
+public class Shota {
+
+    public static void main(String[] args) {
+        char planLetter;
+        double usedHours;
+        double planA = 9.95;
+        double planB = 13.95;
+        double planC = 19.95;
+
+        
+        Scanner userKeyboard = new Scanner(System.in);
+        
+        System.out.print("Enter the plan that you have purchased(A/B/C): ");
+        planLetter = userKeyboard.next().charAt(0);
+        
+        System.out.print("Enter the amount of hours used: ");
+        usedHours = userKeyboard.nextDouble();
+
+        if(planLetter == 'A'){
+            if(usedHours > 10){
+                double planPriceA = planA + 2*(usedHours-10);
+                double planPriceBcomp = planPriceA - planB;
+                double planPriceCcomp = planPriceA - planC;
+                System.out.println("You Chose : "+planLetter);
+                System.out.println("Price for Plan A: "+planPriceA);
+                System.out.printf("You would have saved %.2f by switching to plan B\n",planPriceBcomp);
+                if(planPriceA > planC){
+                System.out.printf("You would have saved %.2f by switching to plan C\n",planPriceCcomp);
+                }
+            }   
+        }else if (planLetter == 'B'){
+            
+            System.out.println("You Chose " +planLetter); 
+        }else if (planLetter == 'C'){
+            System.out.println("You Chose " +planLetter); 
+        }else{
+            System.out.println("Enter A/B/C");
+        }
+        
+        
+        
+    }
+    
+}
